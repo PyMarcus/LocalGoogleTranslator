@@ -2,4 +2,4 @@
 a google translator with gui
 
 
-![img](https://user-images.githubusercontent.com/88283829/154859055-cab4b882-acb9-4d9c-ab6b-64e99ce6ba91.png)
+![forgit](https://user-images.githubusercontent.com/88283829/154970831-e7361287-44b8-4468-a306-dee7334bb31b.png)
