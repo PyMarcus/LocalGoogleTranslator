@@ -7,28 +7,35 @@
 6) botao de traduzir
 """
 from tkinter import ttk, Tk, Text, Button
-from multiprocessing import Process
-from googletrans import Translator
+#from multiprocessing import Process
+#from googletrans import Translator
+#rom google_trans_new import google_translator
+from ttkbootstrap import Style
+
+import translators as ts
+
 
 
 def translate():
     """Traduz a frase passada no container de entrada"""
-    tr = Translator()
+    tr = ts
     text = textbox.get('1.0', 'end')  # pega entrada da linha 1 coluna zero ao final
-    src = str(select_box.get()).replace('Português', 'pt').replace('English', 'en').replace('Deutch', 'de').replace('Turkish', 'tr')
-    dest = str(select_box1.get()).replace('Português', 'pt').replace('English', 'en').replace('Deutch', 'de').replace('Turkish', 'tr')
-
-    translat = tr.translate(text=text, src='auto', dest=dest)
+    src = str(select_box.get()).replace('Português', 'pt').replace('English', 'en').replace('Deutch', 'de').replace('Turkish', 'tr').replace('Español', 'es')
+    dest = str(select_box1.get()).replace('Português', 'pt').replace('English', 'en').replace('Deutch', 'de').replace('Turkish', 'tr').replace('Español', 'es')
+    print(src, dest)
+    translat = ts.google(query_text=text, from_language='auto', to_language=dest.replace(' ', ''))
     # permissões para digitar ou nao
     #text_box.config(state="disable")
     text_box.config(state="normal")
     text_box.delete('1.0', 'end') # deleta o que tiver
-    text_box.insert('1.0', translat.text) # onde escrever e o que
+    text_box.insert('1.0', translat) # onde escrever e o que
     text_box.config(state="disable") # volta ao bloqueio
 
 
 """Gera a interface"""
-window = Tk()  # widget master, principal.
+#window = Tk()  # widget master, principal.
+style = Style('superhero')
+window = style.master
 languages: list = ['Português', "Español", "English", "Deutch"]
 
 """Constroí widgets para entrada de texto"""
@@ -80,5 +87,4 @@ button.pack(padx=10, pady=20)
 # janela principal main-content
 window.title("TRADUTOR")
 window.mainloop()  # loop para permanência da janela, até fechar
-
 
