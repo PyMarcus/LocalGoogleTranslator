@@ -2,7 +2,7 @@ from cx_Freeze import setup, Executable
 from platform import system
 
 
-"""Constroí executavel, para linux ou windows"
+"""Constroí executavel, para linux ou windows"""
 base = None
 if system() == "Windows":
     base = "Win32Gui"
